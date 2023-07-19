@@ -1,0 +1,58 @@
+buildscript {
+	repositories {
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+	}
+	dependencies {
+		classpath "org.liquibase:liquibase-gradle-plugin:2.2.0"
+	}
+}
+plugins {
+	id 'org.springframework.boot' version '2.7.4'
+	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+	id 'java'
+	id "org.liquibase.gradle" version "2.2.0"
+}
+
+group = 'com.fuzail'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '1.8'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.2.0'
+	//caffeine cache
+	implementation group:'com.github.ben-manes.caffeine' , name: 'caffeine'
+	implementation group:'org.springframework.boot' , name: 'spring-boot-starter-cache'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+
+apply plugin: "org.liquibase.gradle"
