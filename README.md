@@ -15,6 +15,7 @@ Integration with the Fixer API to fetch foreign exchange rates and related data.
 
 ### Requirements
 Java 8
+
 SpringBoot version 2.7.4
 
 ### Usage
