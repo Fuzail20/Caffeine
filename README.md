@@ -9,9 +9,13 @@ Fixer API link-
 
 ### Key Features
 Utilization of the powerful Caffeine caching library to store and manage API responses.
+
 Caffeine Cache implementation through annotations as well as through java code.
+
 Automatic cache eviction strategies to ensure data freshness and prevent staleness.
+
 Integration with the Fixer API to fetch foreign exchange rates and related data.
+
 
 ### Requirements
 Java 8
